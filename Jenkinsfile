@@ -1,8 +1,10 @@
 pipeline {
           agent any       
           stages {
-                stage("build"){
-                steps { echo '111111111'     }
+                stage('Checkout'){
+                steps { 
+                checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/toufikbenkhelifa/test.git']]])
+                }
                 
                 
                 }
