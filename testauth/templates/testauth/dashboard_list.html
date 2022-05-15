@@ -1,0 +1,17 @@
+{% extends 'main.html' %}
+{% block content %}
+
+
+
+{% if request.user.is_authenticated %}
+<div class="header-bar">
+<h1>Welcome {{request.user}} !</h1> 
+</div>
+<a href='{% url 'logout' %}' style="margin-top:10px ;" class="button" type="submit"> logout </a>
+{% else %}
+<a href='{% url 'login' %}' style="margin-top:10px ;" class="button" type="submit"> login </a>
+<p> don't have an account ?<a href='{% url 'register' %}' > Register </a>  </p>
+
+{% endif %}
+
+{% endblock content %}
