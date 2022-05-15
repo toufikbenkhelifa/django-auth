@@ -15,14 +15,9 @@ pipeline {
                 }
           
                 stage('Build Docker Image'){ 
-                steps { dockerImage = docker.build registry             }    
+                          steps { script{ dockerImage = docker.build registry   }          }    
                                                    }
-                stage('Upload image to dockerhub'){
-                          steps { 
-  
-                          }
-                
-                }
+
                                          
           }
 }
