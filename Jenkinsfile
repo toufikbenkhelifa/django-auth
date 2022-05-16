@@ -1,5 +1,10 @@
 pipeline {
-    agent any
+    agent {
+              docker {
+                label 'dockerserver'  // both label and image
+                image 'node:7-alpine' 
+              }
+            }
     options { buildDiscarder(logRotator(numToKeepStr:'5'))}
     environment {DOCKERHUB_CREDENTIALS = credentials('tfkben-dockerhub')}
     stages {
