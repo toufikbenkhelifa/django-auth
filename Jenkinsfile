@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'Maître'}
+    agent any
     options { buildDiscarder(logRotator(numToKeepStr:'5'))}
     environment {DOCKERHUB_CREDENTIALS = credentials('tfkben-dockerhub')}
     stages {
