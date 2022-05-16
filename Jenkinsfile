@@ -4,7 +4,9 @@ pipeline {
     environment {DOCKERHUB_CREDENTIALS = credentials('tfkben-dockerhub')}
     stages {
             stage('build'){
+                steps {
                 sh 'docker build -t tfk/ben:latest .'
+                }
             }
 
          }
