@@ -4,9 +4,11 @@ pipeline {
     environment {DOCKERHUB_CREDENTIALS = credentials('tfkben-dockerhub')}
     stages {
              stage('Initialize'){
+                 steps {
               def dockerHome = tool 'mydocker'
               env.PATH = "${dockerHome}/bin:${env.PATH}"
                  }
+             }
             
             stage('build'){
                 steps {
